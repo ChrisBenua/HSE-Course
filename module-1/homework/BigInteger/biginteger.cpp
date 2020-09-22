@@ -327,7 +327,7 @@ BigInteger& BigInteger::operator++() {
             num_.push_back(1);
         }
         for (int j = 0; j < i; ++j) {
-            num_[i] = 0;
+            num_[j] = 0;
         }
     } else { //sign == -1
         sign_ = 1;
@@ -351,7 +351,7 @@ BigInteger& BigInteger::operator--() {
             assert(false);
         }
         for (int j = 0; j < i; ++j) {
-            num_[i] = BASE - 1;
+            num_[j] = BASE - 1;
         }
     } else { //sign == -1
         sign_ = 1;

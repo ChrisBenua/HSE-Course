@@ -154,6 +154,21 @@ TEST(Comparison, Test1) {
     ASSERT_EQ(oss.str(), "010101");
 }
 
+TEST(DeIncrement, Test1) {
+    BigInteger bigint_a = 10000000;
+    int a = 10000000;
+    for (int i = 0; i < 10; ++i) {
+        --bigint_a;
+        --a;
+        ASSERT_EQ(bigint_a.toString(), std::to_string(a));
+    }
+    for (int i = 0; i < 10; ++i) {
+        ++a;
+        ++bigint_a;
+        ASSERT_EQ(bigint_a.toString(), std::to_string(a));
+    }
+}
+
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
