@@ -1,4 +1,3 @@
-
 #include "polygon.h"
 #include "operations.h"
 #include "constants.h"
@@ -16,7 +15,7 @@ double Polygon::perimeter() const {
 }
 
 double Polygon::area() const {
-    Point inside_point = (vertices_[0], vertices_[1]) * 0.5;
+    Point inside_point = (vertices_[0] + vertices_[1]) * 0.5;
     double area_sum = 0;
 
     int vertices_count = verticesCount();
