@@ -4,3 +4,20 @@
 
 template<typename TList, typename OldType, typename NewType> 
 struct Replace;
+
+template<typename OldType, typename NewType>
+struct Replace<NullType, OldType, NewType> {
+    typedef NullType NewTypeList;
+};
+
+
+template<typename OldType, typename NewType, typename Tail>
+struct Replace<TypeList<OldType, Tail>, OldType, NewType> {
+    typedef TypeList<NewType, Tail> NewTypeList;
+};
+
+template<typename T, typename OldType, typename NewType, typename Tail>
+struct Replace<TypeList<T, Tail>, OldType, NewType> {
+    typedef TypeList<T, typename Replace<TypeList<OldType, NullType>, OldType, NewType>::NewTypeList> NewTypeList;
+};
+
